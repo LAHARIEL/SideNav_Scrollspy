@@ -1,3 +1,4 @@
+/* reset du css du navigateur */
 *,
 ::before,
 ::after {
@@ -8,28 +9,39 @@
 
 body {
     font-family: Montserrat, sans-serif;
-    /* padding: 2000px 0; */
+    /* padding: 2000px 0; *//*test en ajoutant du contenu*/
 }
 
 h1 {
     font-family: Roboto Flex, sans-serif;
     font-size: clamp(30px, 8vw, 60px);
+    /* clamp gère le responsive : min 30px, sinon 8% de la largeur de fenêtre, max 60px */
     text-align: center;
     padding: calc(50px + 1vmin) 10px calc(80px + 1vmin);
+    /* calc gère le responsive en haut et en bas en ajoutant 1vmin à la valeur fixe (= 1% du côté le plus petit de la fenêtre affichée) ; valeur horizontale gauche/droite fixe à 10px 
+    */
 }
 
 .documentation-container {
     max-width: 900px;
+    /* largeur maximum du bloc page fixé à 900px */
     margin: 0 auto;
+    /* pas de marge verticale, marge automatique horizontale = centrer */
     display: flex;
+    /* passe la nav et le contenu côte à côte */
     padding: 0 30px;
+     /* pas de padding vertical, padding 30px horizontal */
 }
 
 nav {
     align-self: flex-start;
+    /* ne prendra que le contenu de la nav, sera aligné à gauche */
     margin-right: calc(30px + 1vmin);
+    /* responsive pour la marge de droite */
     position: sticky;
+    /* fixe la position de l'élément nav */
     top: 20%;
+    /* position de la nav qui sera fixée à 20% de la hauteur de la fenêtre en cours depuis le haut, à partir du moment où le scroll dépasse la position initiale de la nav . */
     border: 1px solid rgba(51, 51, 51, 0.25);
     border-radius: 8px;
 }
@@ -46,6 +58,7 @@ nav a {
 }
 
 nav a:nth-child(1) {
+    /* 1er élément de 'a' dans la nav */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -56,12 +69,15 @@ nav a:last-child {
 }
 
 nav a.marked {
+    /* les liens 'a' de la nav, qui ont la classe 'marked' */
     color: #333;
     background: #eaeaea;
 }
 
 nav a.marked::after {
+    /* pseudo élément crée quand le lien 'a' de la nav a la classe 'marked' (conditions en JS). alors on applique */
     content: "";
+    /* pseudo élément doit être instancié avec un 'content' vide ou pas */
     display: block;
     position: absolute;
     width: 4px;
